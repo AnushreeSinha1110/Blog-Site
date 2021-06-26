@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -12,7 +12,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
-mongoose.connect("mongodb+srv://demonSlayer:Rajand2008@cluster0.iobgt.mongodb.net/blogDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://demonSlayer:"+process.env.PASSWORD+"@cluster0.iobgt.mongodb.net/blogDB", {useNewUrlParser: true});
 
 const postSchema = {
 
@@ -93,6 +93,10 @@ app.get("/posts/:postId", function(req, res){
 
 });
 
-app.listen(3000, function() {
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function() {
   console.log("Server started on port 3000");
 });
