@@ -73,9 +73,6 @@ if (!err){
 }
 
 });
-
-  res.redirect("/");
-
 });
 
 app.get("/posts/:postId", function(req, res){
