@@ -12,7 +12,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://demonSlayer:Rajand2008@cluster0.iobgt.mongodb.net/blogDB", {useNewUrlParser: true});
 
 const postSchema = {
 
@@ -73,9 +73,6 @@ if (!err){
 }
 
 });
-
-  res.redirect("/");
-
 });
 
 app.get("/posts/:postId", function(req, res){
